@@ -125,9 +125,8 @@ partial class Level : GameObjectList
         }
     }
 
-    /// <summary>
-    /// Checks and returns whether the player has collected all water drops in this level.
-    /// </summary>
+    // Checks and returns whether the player has collected all water drops in this level.
+   
     bool AllDropsCollected
     {
         get
