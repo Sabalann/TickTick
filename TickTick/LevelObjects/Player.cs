@@ -2,10 +2,11 @@ using Engine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Threading;
 
 class Player : AnimatedGameObject
 {
-    const float walkingSpeed = 400; // Standard walking speed, in game units per second.
+    float walkingSpeed = 400; // Standard walking speed, in game units per second.
     const float jumpSpeed = 900; // Lift-off speed when the character jumps.
     const float gravity = 2300; // Strength of the gravity force that pulls the character down.
     const float maxFallSpeed = 1200; // The maximum vertical speed at which the character can fall.
@@ -17,8 +18,10 @@ class Player : AnimatedGameObject
     bool facingLeft; // Whether or not the character is currently looking to the left.
 
     bool isGrounded; // Whether or not the character is currently standing on something.
-    bool standingOnIceTile, standingOnHotTile; // Whether or not the character is standing on an ice tile or a hot tile.
+    bool standingOnIceTile, standingOnHotTile; // Whether or not the character is standing on an ice tile, a hot tile or a speed tile.
     float desiredHorizontalSpeed; // The horizontal speed at which the character would like to move.
+
+    float timer = 0;
 
     Level level;
     Vector2 startPosition;
@@ -147,6 +150,13 @@ class Player : AnimatedGameObject
 
         base.Update(gameTime);
 
+        if (timer > 0)
+        {
+            timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            walkingSpeed = 700;
+        }
+        else walkingSpeed = 400;
+
         if (IsAlive)
         {
             // check for collisions with tiles
@@ -160,8 +170,10 @@ class Player : AnimatedGameObject
             else
                 level.Timer.Multiplier = 1;
         }
-            
+
+        
     }
+
 
     void ApplyFriction(GameTime gameTime)
     {
@@ -251,6 +263,9 @@ class Player : AnimatedGameObject
                             standingOnHotTile = true;
                         else if (surface == Tile.SurfaceType.Ice)
                             standingOnIceTile = true;
+                        else if (surface == Tile.SurfaceType.Speed)
+                            timer = 10;
+
                     }
                     else if (velocity.Y <= 0 && bbox.Center.Y > tileBounds.Bottom && overlap.Height > 2) // ceiling
                     {

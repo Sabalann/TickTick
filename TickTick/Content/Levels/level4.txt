@@ -10,7 +10,7 @@ R....W...W...W...W..
 ##HHHHHHHHHHHHHHHH..
 .......W...W...W....
 R....W...W...W...W..
-..HHHHHHHHHHHHHHHH##
+..HHHHHHHHFHHHHHHH##
 ...W...W...W...W....
 .W...W...W...W....1.
 ####################

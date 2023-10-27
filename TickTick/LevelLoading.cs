@@ -123,6 +123,10 @@ partial class Level : GameObjectList
                 return new Tile(Tile.Type.Platform, Tile.SurfaceType.Ice);
             case 'I':
                 return new Tile(Tile.Type.Wall, Tile.SurfaceType.Ice);
+            case 'f':
+                return new Tile(Tile.Type.Platform, Tile.SurfaceType.Speed);
+            case 'F':
+                return new Tile(Tile.Type.Wall, Tile.SurfaceType.Speed);
             default:
                 return new Tile(Tile.Type.Empty, Tile.SurfaceType.Normal);
         }

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Engine
 {
-    internal class Camera
+    public class Camera
     {
         // GlobalPosition bepaald de positie van alle sprites in de gameworld
         // Als we de speler een parent maken van een ander object bewegen deze objecten met de speler mee
@@ -17,5 +15,29 @@ namespace Engine
         // player in het midden?
 
         // ervoor zorgen dat de camera alleen werkt wanneer het nodig is, dus bijv. niet in het main menu
+
+
+        public Matrix transform;
+        Viewport view;
+        Vector2 center;
+
+
+        public Camera(Viewport view)
+        {
+            this.view = view;
+        }
+
+       /* public void Update(GameTime gameTime, GameObject gameObject)
+        {
+            center = new Vector2()
+        } */
+
+
+
+
+
+
+
+
     }
 }
