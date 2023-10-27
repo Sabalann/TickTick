@@ -1,5 +1,6 @@
 ﻿using Engine;
 using Microsoft.Xna.Framework;
+using System.Security.Cryptography.X509Certificates;
 
 /// <summary>
 /// Represents a rocket enemy that flies horizontally through the screen.
@@ -38,7 +39,6 @@ class Rocket : AnimatedGameObject
         // go back to the starting position
         LocalPosition = startPosition;
     }
-
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
@@ -49,8 +49,19 @@ class Rocket : AnimatedGameObject
         else if (!sprite.Mirror && BoundingBox.Left > level.BoundingBox.Right)
             Reset();
 
-        // if the rocket touches the player, the player dies
-        if (level.Player.CanCollideWithObjects && HasPixelPreciseCollision(level.Player))
-            level.Player.Die();
-    }
+        // dit stuk is herschreven 
+        if (level.Player.CanCollideWithObjects && HasPixelPreciseCollision(level.Player)) // eerst checken of er collision plaats vindt
+        {
+            if ((level.Player.BoundingBox.Y + level.Player.Height) < this.startPosition.Y) // kijken of de onderkant van de speler zich boven de bovenkant van de bom bevindt
+            {
+                this.Reset(); // reset de bom
+            }
+            else // anders springt de speler niet bovenop de bom
+            {
+                level.Player.Die(); // speler gaat dood
+            }
+        }
+
+
+    } 
 }
