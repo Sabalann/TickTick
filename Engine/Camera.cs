@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Engine
 {
-    public class Camera
+    class Camera : GameObject
     {
         // GlobalPosition bepaald de positie van alle sprites in de gameworld
         // Als we de speler een parent maken van een ander object bewegen deze objecten met de speler mee
@@ -17,22 +17,14 @@ namespace Engine
         // ervoor zorgen dat de camera alleen werkt wanneer het nodig is, dus bijv. niet in het main menu
 
 
-        public Matrix transform;
-        Viewport view;
-        Vector2 center;
+        public Rectangle cameraview;
 
 
-        public Camera(Viewport view)
+        public Camera()
         {
-            this.view = view;
+            cameraview = new Rectangle((int)LocalPosition.X, (int)LocalPosition.Y, 1440, 820);
+           // Parent = ...;
         }
-
-       /* public void Update(GameTime gameTime, GameObject gameObject)
-        {
-            center = new Vector2()
-        } */
-
-
 
 
 
