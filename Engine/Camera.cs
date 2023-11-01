@@ -22,9 +22,11 @@ namespace Engine
 
 
         
-        public static void Updateoffset(Vector2 playerpos)
+        public static void Updateoffset(Vector2 playerpos, int width, int height)
         {
             camerapos = new Vector2(playerpos.X - 1024 / 2, playerpos.Y - 768);
+            camerapos.X = Math.Clamp(camerapos.X, 0, width - cameraview.Width);
+            camerapos.Y = Math.Clamp(camerapos.Y, 0, height);
             cameraview = new Rectangle((int)camerapos.X, (int)camerapos.Y, 800, 450);
         }
 
