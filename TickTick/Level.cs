@@ -131,7 +131,8 @@ partial class Level : GameObjectList
         {
             
             playerpos = Player.GlobalPosition;
-                
+            playerpos.X = Math.Clamp(playerpos.X, Camera.cameraview.Width, 1048);
+            
             Camera.Updateoffset(playerpos);
             Math.Clamp(Camera.camerapos.X, 0, tiles.GetLength(0) * TileWidth - Camera.cameraview.X / 2);
 
