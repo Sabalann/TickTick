@@ -129,8 +129,15 @@ partial class Level : GameObjectList
 
         if (Player != null)
         {
+            
             playerpos = Player.GlobalPosition;
+                
             Camera.Updateoffset(playerpos);
+            Math.Clamp(Camera.camerapos.X, 0, tiles.GetLength(0) * TileWidth - Camera.cameraview.X / 2);
+
+
+
+
         }
         
     }

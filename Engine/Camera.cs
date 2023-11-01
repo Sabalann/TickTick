@@ -17,7 +17,7 @@ namespace Engine
         // ervoor zorgen dat de camera alleen werkt wanneer het nodig is, dus bijv. niet in het main menu
 
 
-        
+        public static Rectangle cameraview;
         public static Vector2 camerapos;
 
 
@@ -25,7 +25,7 @@ namespace Engine
         public static void Updateoffset(Vector2 playerpos)
         {
             camerapos = new Vector2(playerpos.X - 1024 / 2, playerpos.Y - 768);
-            
+            cameraview = new Rectangle((int)camerapos.X, (int)camerapos.Y, 800, 450);
         }
 
 
