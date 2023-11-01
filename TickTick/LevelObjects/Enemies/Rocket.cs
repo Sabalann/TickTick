@@ -52,9 +52,9 @@ class Rocket : AnimatedGameObject
         // dit stuk is herschreven 
         if (level.Player.CanCollideWithObjects && HasPixelPreciseCollision(level.Player)) // eerst checken of er collision plaats vindt
         {
-            if ((level.Player.BoundingBox.Y + level.Player.Height) < this.startPosition.Y) // kijken of de onderkant van de speler zich boven de bovenkant van de bom bevindt
+            if ((level.Player.BoundingBox.Bottom) < startPosition.Y) // kijken of de onderkant van de speler zich boven de bovenkant van de bom bevindt
             {
-                this.Reset(); // reset de bom
+                Reset(); // reset de bom
             }
             else // anders springt de speler niet bovenop de bom
             {

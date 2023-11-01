@@ -11,6 +11,7 @@ namespace Engine
         /// <summary>
         /// The game objects associated to this game state.
         /// </summary>
+        /// 
         protected GameObjectList gameObjects;
 
         /// <summary>

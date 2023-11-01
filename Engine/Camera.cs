@@ -22,7 +22,7 @@ namespace Engine
 
         public Camera()
         {
-            cameraview = new Rectangle((int)LocalPosition.X, (int)LocalPosition.Y, 1440, 820);
+            cameraview = new Rectangle((int)LocalPosition.X, (int)LocalPosition.Y, 800, 450);
            // Parent = ...;
         }
 
