@@ -11,6 +11,9 @@ partial class Level : GameObjectList
     Tile[,] tiles;
     List<WaterDrop> waterDrops;
 
+    Vector2 playerpos;
+    
+
     public Player Player { get; private set; }
     public int LevelIndex { get; private set; }
 
@@ -123,6 +126,13 @@ partial class Level : GameObjectList
         {
             Player.Explode();
         }
+
+        if (Player != null)
+        {
+            playerpos = Player.GlobalPosition;
+            Camera.Updateoffset(playerpos);
+        }
+        
     }
 
     // Checks and returns whether the player has collected all water drops in this level.

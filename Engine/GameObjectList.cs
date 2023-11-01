@@ -14,7 +14,7 @@ namespace Engine
         /// The child objects of this game object.
         /// </summary>
         List<GameObject> children;
-        Camera camera = new Camera();
+      
 
         /// <summary>
         /// Creates a new GameObjectList with an empty list of children.
@@ -68,7 +68,6 @@ namespace Engine
                 return;
 
             foreach (GameObject obj in children)
-                if (camera.cameraview.Contains(obj.GlobalPosition))
                     obj.Draw(gameTime, spriteBatch);
         }
 

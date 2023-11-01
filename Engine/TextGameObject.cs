@@ -76,7 +76,7 @@ namespace Engine
             Vector2 origin = new Vector2(OriginX, 0);
 
             // draw the text
-            spriteBatch.DrawString(font, Text, GlobalPosition,
+            spriteBatch.DrawString(font, Text, GlobalPosition + Camera.camerapos,
                 Color, 0f, origin, 1, SpriteEffects.None, depth);
         }
 
