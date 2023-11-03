@@ -6,33 +6,17 @@ namespace Engine
 {
     public static class Camera
     {
-        // GlobalPosition bepaald de positie van alle sprites in de gameworld
-        // Als we de speler een parent maken van een ander object bewegen deze objecten met de speler mee
-        // Niet daadwerkelijk de positie van de andere objecten aanpassen voor collission e.d, camera heeft alleen effect op het tekenen van objecten
-        // een nieuwe vector aanmaken voor het tekenen zodat global position niet beinvloed word??
-
-        // sowieso een update class voor de camera positie en de objecten die binnen de camera moeten
-        // player in het midden?
-
-        // ervoor zorgen dat de camera alleen werkt wanneer het nodig is, dus bijv. niet in het main menu
-
-
         public static Rectangle cameraview;
         public static Vector2 camerapos;
-
-
         
         public static void Updateoffset(Vector2 playerpos, int width, int height)
         {
-            camerapos = new Vector2(playerpos.X - 1024 / 2, playerpos.Y - 768);
-            camerapos.X = Math.Clamp(camerapos.X, 0, width - cameraview.Width);
-            camerapos.Y = Math.Clamp(camerapos.Y, 0, height);
-            cameraview = new Rectangle((int)camerapos.X, (int)camerapos.Y, 800, 450);
+            camerapos = new Vector2(playerpos.X - ExtendedGame.worldSize.X / 2, playerpos.Y - ExtendedGame.worldSize.Y / 2); // ervoor zorgen dat wanneer het kan, de speler in het midden staat
+            camerapos.X = Math.Clamp(camerapos.X, 0, width - ExtendedGame.worldSize.X); // ervoor zorgen dat de camera altijd binnen de bounds van het leven zal vallen
+            camerapos.Y = Math.Clamp(camerapos.Y, 0, height - ExtendedGame.worldSize.Y); // zelfde als hierboven maar in de hoogte
+            cameraview = new Rectangle((int)camerapos.X, (int)camerapos.Y, ExtendedGame.worldSize.X, ExtendedGame.worldSize.Y); // bepalen hoe groot de camera is (in dit geval de eerder bepaalde windowsize)
+
+            // worldSize gebruiken ipv windowSize want in de ExtendedGame schalen ze alles nog waardoor de windowSize gek doet
         }
-
-
-
-
-
     }
 }

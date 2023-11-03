@@ -128,14 +128,14 @@ partial class Level : GameObjectList
         }
 
 
-        if (Player != null)
+        if (Player != null) // checken of er een speler is die gevolgd moet worden door de camera
         {
 
-            playerpos = Player.GlobalPosition;
-            Camera.Updateoffset(playerpos, tiles.GetLength(0) * TileWidth, tiles.GetLength(1) * TileHeight);
+            playerpos = Player.GlobalPosition; // de spelerpositie bepalen zodat deze aan de camera meegegeven kan worden
+            Camera.Updateoffset(playerpos, tiles.GetLength(0) * TileWidth, tiles.GetLength(1) * TileHeight); // de camera de juiste info meegeven om alles te kunnen berekenen
 
         }
-        else Camera.camerapos.X = 0;
+        else Camera.camerapos.X = 0; // ervoor zorgen dat de camera anders altijd op 0 staat, anders kloppen de menu's niet meer
         
     }
 
