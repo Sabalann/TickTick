@@ -62,8 +62,6 @@ namespace Engine
         /// <param name="spriteBatch">A sprite batch object used for drawing sprites.</param>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-
-            
             if (!Visible)
                 return;
 

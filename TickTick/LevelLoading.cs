@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 partial class Level : GameObjectList
 {
@@ -13,8 +14,11 @@ partial class Level : GameObjectList
         // read the description
         string description = reader.ReadLine();
 
+        // tijd staat op tweede rij, uitlezen
+        string timeleft = reader.ReadLine();
+
         // read the rows of the grid; keep track of the longest row
-        int gridWidth = 0;
+        int gridWidth = 0; 
 
         List<string> gridRows = new List<string>();
         string line = reader.ReadLine();
@@ -27,14 +31,19 @@ partial class Level : GameObjectList
             line = reader.ReadLine();
         }
 
+        // om de string van de tijd naar een double te zetten die ook word gebruikt in de timer van de bom
+        double time = double.Parse(timeleft);
+       
+        
         // stop reading the file
         reader.Close();
-        
+
         // create all game objects for the grid
         AddPlayingField(gridRows, gridWidth, gridRows.Count);
 
         // add game objects to show that general level info
         AddLevelInfoObjects(description);
+         
     }
 
     void AddLevelInfoObjects(string description)

@@ -11,9 +11,6 @@ partial class Level : GameObjectList
     Tile[,] tiles;
     List<WaterDrop> waterDrops;
 
-    Vector2 playerpos;
-    
-
     public Player Player { get; private set; }
     public int LevelIndex { get; private set; }
 
@@ -28,11 +25,16 @@ partial class Level : GameObjectList
 
         // load the background
         GameObjectList backgrounds = new GameObjectList();
-        SpriteGameObject backgroundSky = new SpriteGameObject("Sprites/Backgrounds/spr_sky", TickTick.Depth_Background);
-        backgroundSky.LocalPosition = new Vector2(0, 825 - backgroundSky.Height);
-        backgrounds.AddChild(backgroundSky);
 
-        AddChild(backgrounds);
+        for (int i = 0; i < 3; i++)
+        {
+            
+            SpriteGameObject backgroundSky = new SpriteGameObject("Sprites/Backgrounds/spr_sky", TickTick.Depth_Background);
+            backgroundSky.LocalPosition = new Vector2(backgroundSky.Width * (i-1), ExtendedGame.worldSize.Y - backgroundSky.Height);
+            backgrounds.AddChild(backgroundSky);
+
+            AddChild(backgrounds);
+        }
 
         // load the rest of the level
         LoadLevelFromFile(filename);
@@ -42,14 +44,12 @@ partial class Level : GameObjectList
         AddChild(timer);
 
         // add mountains in the background
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 9; i++)
         {
-            SpriteGameObject mountain = new SpriteGameObject(
-                "Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
-                TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
+            SpriteGameObject mountain = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
+            TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
 
-            mountain.LocalPosition = new Vector2(mountain.Width * (i-1) * 0.4f, 
-                BoundingBox.Height - mountain.Height);
+            mountain.LocalPosition = new Vector2(mountain.Width * (i-1) * 0.4f, BoundingBox.Height - mountain.Height);
 
             backgrounds.AddChild(mountain);
         }
@@ -130,9 +130,7 @@ partial class Level : GameObjectList
 
         if (Player != null) // checken of er een speler is die gevolgd moet worden door de camera
         {
-
-            playerpos = Player.GlobalPosition; // de spelerpositie bepalen zodat deze aan de camera meegegeven kan worden
-            Camera.Updateoffset(playerpos, tiles.GetLength(0) * TileWidth, tiles.GetLength(1) * TileHeight); // de camera de juiste info meegeven om alles te kunnen berekenen
+            Camera.Updateoffset(Player.GlobalPosition, tiles.GetLength(0) * TileWidth, tiles.GetLength(1) * TileHeight); // de camera de juiste info meegeven om alles te kunnen berekenen
 
         }
         else Camera.camerapos.X = 0; // ervoor zorgen dat de camera anders altijd op 0 staat, anders kloppen de menu's niet meer

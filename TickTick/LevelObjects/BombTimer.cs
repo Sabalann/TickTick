@@ -1,13 +1,15 @@
 ﻿using Engine;
 using Microsoft.Xna.Framework;
 using System;
+using System.IO;
+using System.Threading;
 
-class BombTimer : GameObjectList
+public class BombTimer : GameObjectList
 {
-    double timeLeft;
-
     public bool Running { get; set; }
     public float Multiplier { get; set; }
+
+    double timeLeft;
 
     TextGameObject label;
 
@@ -58,11 +60,10 @@ class BombTimer : GameObjectList
                 ExtendedGame.AssetManager.PlaySoundEffect("Sounds/snd_beep");
         }
     }
-
     public override void Reset()
     {
         base.Reset();
-        timeLeft = 30;
+        timeLeft = 70;
         Running = true;
         Multiplier = 1;
     }
