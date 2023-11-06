@@ -7,6 +7,7 @@ partial class Level : GameObjectList
 {
     public const int TileWidth = 72;
     public const int TileHeight = 55;
+    double timeleft;
 
     Tile[,] tiles;
     List<WaterDrop> waterDrops;
@@ -40,7 +41,7 @@ partial class Level : GameObjectList
         LoadLevelFromFile(filename);
 
         // add the timer
-        timer = new BombTimer();
+        timer = new BombTimer(timeleft);
         AddChild(timer);
 
         // add mountains in the background

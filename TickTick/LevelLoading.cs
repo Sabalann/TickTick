@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 partial class Level : GameObjectList
 {
+    
     void LoadLevelFromFile(string filename)
     {
         // open the file
@@ -15,7 +16,7 @@ partial class Level : GameObjectList
         string description = reader.ReadLine();
 
         // tijd staat op tweede rij, uitlezen
-        string timeleft = reader.ReadLine();
+        timeleft = double.Parse(reader.ReadLine()); 
 
         // read the rows of the grid; keep track of the longest row
         int gridWidth = 0; 
@@ -31,8 +32,8 @@ partial class Level : GameObjectList
             line = reader.ReadLine();
         }
 
-        // om de string van de tijd naar een double te zetten die ook word gebruikt in de timer van de bom
-        double time = double.Parse(timeleft);
+        
+        
        
         
         // stop reading the file
