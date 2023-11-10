@@ -55,6 +55,7 @@ namespace Engine
         {
             if (gameStates.ContainsKey(name))
                 currentGameState = gameStates[name];
+            Camera.CameraReset();
         }
 
         /// <summary>

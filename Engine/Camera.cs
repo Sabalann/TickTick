@@ -18,5 +18,10 @@ namespace Engine
 
             // worldSize gebruiken ipv windowSize want in de ExtendedGame schalen ze alles nog waardoor de windowSize gek doet
         }
+
+        public static void CameraReset()
+        {
+            camerapos = new Vector2(0, 0);
+        }
     }
 }

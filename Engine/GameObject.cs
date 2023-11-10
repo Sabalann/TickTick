@@ -25,6 +25,8 @@ namespace Engine
         /// </summary>
         public bool Visible { get; set; }
         public bool Moving { get; set; }
+        public bool Parallax1 { get; set; }
+        public bool Parallax2 { get; set; }
 
         /// <summary>
         /// The (optional) parent of this object in the game-object hierarchy.
@@ -41,6 +43,8 @@ namespace Engine
             velocity = Vector2.Zero;
             Visible = true;
             Moving = true;
+            Parallax1 = false;
+            Parallax2 = false;
         }
 
         /// <summary>

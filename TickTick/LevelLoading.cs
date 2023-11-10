@@ -1,5 +1,4 @@
 ﻿using Engine;
-using Engine.Engine;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
@@ -47,9 +46,10 @@ partial class Level : GameObjectList
     void AddLevelInfoObjects(string description)
     {
         // - background box
-        NoMoveSprite frame = new NoMoveSprite("Sprites/UI/spr_frame_hint", TickTick.Depth_UIBackground);
+        SpriteGameObject frame = new SpriteGameObject("Sprites/UI/spr_frame_hint", TickTick.Depth_UIBackground);
         frame.SetOriginToCenter();
         frame.LocalPosition = new Vector2(720, 50);
+        frame.Moving = false;
         AddChild(frame);
 
         // - text

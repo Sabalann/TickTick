@@ -51,8 +51,19 @@ partial class Level : GameObjectList
             TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
 
             mountain.LocalPosition = new Vector2(mountain.Width * (i-1) * 0.4f, BoundingBox.Height - mountain.Height);
+            mountain.Parallax1 = true;
 
             backgrounds.AddChild(mountain);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            SpriteGameObject mountain1 = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
+            TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
+
+            mountain1.LocalPosition = new Vector2(mountain1.Width * (i - 1) * 0.4f, BoundingBox.Height - mountain1.Height);
+
+            backgrounds.AddChild(mountain1);
         }
 
         // add clouds
