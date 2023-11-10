@@ -1,4 +1,5 @@
 ﻿using Engine;
+using Engine.Engine;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
@@ -31,11 +32,7 @@ partial class Level : GameObjectList
             gridRows.Add(line);
             line = reader.ReadLine();
         }
-
-        
-        
-       
-        
+ 
         // stop reading the file
         reader.Close();
 
@@ -50,7 +47,7 @@ partial class Level : GameObjectList
     void AddLevelInfoObjects(string description)
     {
         // - background box
-        SpriteGameObject frame = new SpriteGameObject("Sprites/UI/spr_frame_hint", TickTick.Depth_UIBackground);
+        NoMoveSprite frame = new NoMoveSprite("Sprites/UI/spr_frame_hint", TickTick.Depth_UIBackground);
         frame.SetOriginToCenter();
         frame.LocalPosition = new Vector2(720, 50);
         AddChild(frame);

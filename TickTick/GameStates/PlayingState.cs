@@ -1,4 +1,5 @@
 ﻿using Engine;
+using Engine.Engine;
 using Engine.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,7 +9,7 @@ class PlayingState : GameState, IPlayingState
 {
     Level level;
     Button quitButton;
-    SpriteGameObject completedOverlay, gameOverOverlay;
+    NoMoveSprite completedOverlay, gameOverOverlay;
 
     public PlayingState()
     {
@@ -22,9 +23,9 @@ class PlayingState : GameState, IPlayingState
         gameOverOverlay = AddOverlay("Sprites/UI/spr_gameover");
     }
 
-    SpriteGameObject AddOverlay(string spriteName)
+    NoMoveSprite AddOverlay(string spriteName)
     {
-        SpriteGameObject result = new SpriteGameObject(spriteName, 1);
+        NoMoveSprite result = new NoMoveSprite(spriteName, 1);
         result.SetOriginToCenter();
         result.LocalPosition = new Vector2(720, 412);
         gameObjects.AddChild(result);

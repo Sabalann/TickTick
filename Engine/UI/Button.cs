@@ -1,4 +1,7 @@
-﻿namespace Engine.UI
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace Engine.UI
 {
     /// <summary>
     /// A class that can represent a UI button in the game.
@@ -19,7 +22,6 @@
         {
             Pressed = false;
         }
-
         public override void HandleInput(InputHelper inputHelper)
         {
             Pressed = Visible && inputHelper.MouseLeftButtonPressed()

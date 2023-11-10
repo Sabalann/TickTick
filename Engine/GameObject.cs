@@ -24,6 +24,7 @@ namespace Engine
         /// Whether or not this game object is currently visible.
         /// </summary>
         public bool Visible { get; set; }
+        public bool Moving { get; set; }
 
         /// <summary>
         /// The (optional) parent of this object in the game-object hierarchy.
@@ -39,6 +40,7 @@ namespace Engine
             LocalPosition = Vector2.Zero;
             velocity = Vector2.Zero;
             Visible = true;
+            Moving = true;
         }
 
         /// <summary>
