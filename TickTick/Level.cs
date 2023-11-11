@@ -1,5 +1,6 @@
 ﻿using Engine;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 
@@ -27,7 +28,7 @@ partial class Level : GameObjectList
         // load the background
         GameObjectList backgrounds = new GameObjectList();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 10; i++)
         {
             
             SpriteGameObject backgroundSky = new SpriteGameObject("Sprites/Backgrounds/spr_sky", TickTick.Depth_Background);
@@ -45,25 +46,37 @@ partial class Level : GameObjectList
         AddChild(timer);
 
         // add mountains in the background
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 6; i++)
         {
             SpriteGameObject mountain = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
             TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
 
             mountain.LocalPosition = new Vector2(mountain.Width * (i-1) * 0.4f, BoundingBox.Height - mountain.Height);
             mountain.Parallax1 = true;
+ 
 
             backgrounds.AddChild(mountain);
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             SpriteGameObject mountain1 = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
-            TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
+            TickTick.Depth_Background + 0.1f * (float)ExtendedGame.Random.NextDouble());
 
             mountain1.LocalPosition = new Vector2(mountain1.Width * (i - 1) * 0.4f, BoundingBox.Height - mountain1.Height);
+            mountain1.Parallax2 = true;
 
             backgrounds.AddChild(mountain1);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            SpriteGameObject mountain2 = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
+            TickTick.Depth_Background + 0.5f * (float)ExtendedGame.Random.NextDouble());
+
+            mountain2.LocalPosition = new Vector2(mountain2.Width * (i - 1) * 0.4f, BoundingBox.Height - mountain2.Height);
+
+            backgrounds.AddChild(mountain2);
         }
 
         // add clouds
@@ -143,7 +156,6 @@ partial class Level : GameObjectList
         if (Player != null) // checken of er een speler is die gevolgd moet worden door de camera
         {
             Camera.Updateoffset(Player.GlobalPosition, tiles.GetLength(0) * TileWidth, tiles.GetLength(1) * TileHeight); // de camera de juiste info meegeven om alles te kunnen berekenen
-
         }
         else Camera.camerapos.X = 0; // ervoor zorgen dat de camera anders altijd op 0 staat, anders kloppen de menu's niet meer
         

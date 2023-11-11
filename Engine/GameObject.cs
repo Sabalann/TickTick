@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Engine
 {
@@ -65,6 +66,12 @@ namespace Engine
         public virtual void Update(GameTime gameTime)
         {
             LocalPosition += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (Parallax1 == true && Camera.CameraUpdate() == true)
+                LocalPosition += new Vector2(5, 0) * (Camera.camerapos.X - Camera.previous.X) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (Parallax2 == true && Camera.CameraUpdate() == true)
+                LocalPosition += new Vector2(3,0) * (Camera.camerapos.X - Camera.previous.X) * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         /// <summary>
