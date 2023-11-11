@@ -12,7 +12,7 @@ namespace Engine
         
         public static void Updateoffset(Vector2 playerpos, int width, int height)
         {
-            previous = camerapos;
+            previous = camerapos; // opslaan vorige positie
 
             camerapos = new Vector2(playerpos.X - ExtendedGame.worldSize.X / 2, playerpos.Y - ExtendedGame.worldSize.Y / 2); // ervoor zorgen dat wanneer het kan, de speler in het midden staat
             camerapos.X = Math.Clamp(camerapos.X, 0, width - ExtendedGame.worldSize.X); // ervoor zorgen dat de camera altijd binnen de bounds van het leven zal vallen
@@ -21,15 +21,15 @@ namespace Engine
             // worldSize gebruiken ipv windowSize want in de ExtendedGame schalen ze alles nog waardoor de windowSize gek doet
         }
 
-        public static void CameraReset()
+        public static void CameraReset() // om de camera te kunnen resetten naar nul
         {
             camerapos = new Vector2(0, 0);
-            previous = camerapos;
+            previous = camerapos; // opslaan nieuwe vorige positie
         }
 
-        public static bool CameraUpdate()
+        public static bool CameraUpdate() // komt terug als true wanneer camera heeft bewogen
         {
-            return camerapos != previous;
+            return camerapos != previous; // kijken of camera heeft bewogen
         }
     }
 }

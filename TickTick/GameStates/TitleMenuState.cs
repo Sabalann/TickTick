@@ -28,10 +28,7 @@ class TitleMenuState : GameState
         musicbutton = new Switch("Sprites/UI/spr_button_music@2x2", TickTick.Depth_UIForeground);
         musicbutton.LocalPosition = new Vector2(0, titleScreen.Height - musicbutton.Height);
         gameObjects.AddChild(musicbutton);
-
-        
     }
-
     public override void HandleInput(InputHelper inputHelper)
     {
         base.HandleInput(inputHelper);
@@ -44,7 +41,7 @@ class TitleMenuState : GameState
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-        if (musicbutton.Selected) { MediaPlayer.Pause(); }
+        if (musicbutton.Selected) { MediaPlayer.Pause();}
         else MediaPlayer.Resume();
     }
 }

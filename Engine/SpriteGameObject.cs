@@ -62,10 +62,10 @@ namespace Engine
 
             // draw the sprite at its *global* position in the game world
             if (sprite != null && Moving == true)
-                sprite.Draw(spriteBatch, GlobalPosition - Camera.camerapos, Origin); // haal de camerapositie eraf
+                sprite.Draw(spriteBatch, GlobalPosition - Camera.camerapos, Origin); // haal de camerapositie eraf zodat camera goed tekent
 
             if (sprite != null && Moving == false)
-                sprite.Draw(spriteBatch, GlobalPosition, Origin);
+                sprite.Draw(spriteBatch, GlobalPosition, Origin); // haal de camerapositie er niet af, zodat de objecten meebewegen als een soort overlay
         }
 
         /// <summary>

@@ -25,9 +25,9 @@ namespace Engine
         /// Whether or not this game object is currently visible.
         /// </summary>
         public bool Visible { get; set; }
-        public bool Moving { get; set; }
-        public bool Parallax1 { get; set; }
-        public bool Parallax2 { get; set; }
+        public bool Moving { get; set; } // bepaald of een object mee moet bewegen of niet
+        public bool Parallax1 { get; set; } // eerste laag parallax
+        public bool Parallax2 { get; set; } // tweede laag parallax
 
         /// <summary>
         /// The (optional) parent of this object in the game-object hierarchy.
@@ -43,8 +43,8 @@ namespace Engine
             LocalPosition = Vector2.Zero;
             velocity = Vector2.Zero;
             Visible = true;
-            Moving = true;
-            Parallax1 = false;
+            Moving = true; // meeste bewegen mee, dus standaard op true
+            Parallax1 = false; // alleen voor achtergronden, dus standaard op false
             Parallax2 = false;
         }
 
@@ -67,11 +67,11 @@ namespace Engine
         {
             LocalPosition += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (Parallax1 == true && Camera.CameraUpdate() == true)
-                LocalPosition += new Vector2(5, 0) * (Camera.camerapos.X - Camera.previous.X) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (Parallax1 == true && Camera.CameraUpdate() == true) // kijk of object parallax heeft en of deze beweegt
+                LocalPosition += new Vector2(5, 0) * (Camera.camerapos.X - Camera.previous.X) * (float)gameTime.ElapsedGameTime.TotalSeconds; // beweegt achterste objecten het snelst opzij
 
-            if (Parallax2 == true && Camera.CameraUpdate() == true)
-                LocalPosition += new Vector2(3,0) * (Camera.camerapos.X - Camera.previous.X) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (Parallax2 == true && Camera.CameraUpdate() == true) // check if object has parallax and if camera moved
+                LocalPosition += new Vector2(3,0) * (Camera.camerapos.X - Camera.previous.X) * (float)gameTime.ElapsedGameTime.TotalSeconds; // beweegt middelste objecten iets minder snel opzij
         }
 
         /// <summary>

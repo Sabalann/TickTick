@@ -8,7 +8,7 @@ partial class Level : GameObjectList
 {
     public const int TileWidth = 72;
     public const int TileHeight = 55;
-    double timeleft;
+    double timeleft; // bepaald de hoeveelheid tijd die je over hebt
 
     Tile[,] tiles;
     List<WaterDrop> waterDrops;
@@ -42,37 +42,37 @@ partial class Level : GameObjectList
         LoadLevelFromFile(filename);
 
         // add the timer
-        timer = new BombTimer(timeleft);
+        timer = new BombTimer(timeleft); // houd tijd bij
         AddChild(timer);
 
         // add mountains in the background
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++) // bergen helemaal in de achtergrond
         {
             SpriteGameObject mountain = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
             TickTick.Depth_Background + 0.01f * (float)ExtendedGame.Random.NextDouble());
 
             mountain.LocalPosition = new Vector2(mountain.Width * (i-1) * 0.4f, BoundingBox.Height - mountain.Height);
-            mountain.Parallax1 = true;
+            mountain.Parallax1 = true; // parallax aanzetten
  
 
             backgrounds.AddChild(mountain);
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++) // meer bergen in de achtergrond
         {
             SpriteGameObject mountain1 = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
             TickTick.Depth_Background + 0.1f * (float)ExtendedGame.Random.NextDouble());
 
             mountain1.LocalPosition = new Vector2(mountain1.Width * (i - 1) * 0.4f, BoundingBox.Height - mountain1.Height);
-            mountain1.Parallax2 = true;
+            mountain1.Parallax2 = true; // parallax aanzetten
 
             backgrounds.AddChild(mountain1);
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 7; i++) // bergen op de voorgrond
         {
             SpriteGameObject mountain2 = new SpriteGameObject("Sprites/Backgrounds/spr_mountain_" + (ExtendedGame.Random.Next(2) + 1),
-            TickTick.Depth_Background + 0.5f * (float)ExtendedGame.Random.NextDouble());
+            TickTick.Depth_Background + 0.4f * (float)ExtendedGame.Random.NextDouble());
 
             mountain2.LocalPosition = new Vector2(mountain2.Width * (i - 1) * 0.4f, BoundingBox.Height - mountain2.Height);
 
