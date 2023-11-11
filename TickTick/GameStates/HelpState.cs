@@ -12,7 +12,7 @@ class HelpState : GameState
         gameObjects.AddChild(new SpriteGameObject("Sprites/Backgrounds/spr_help", 1));
 
         // add a back button
-        backButton = new Button("Sprites/UI/spr_button_back", 1);
+        backButton = new Button("Sprites/UI/spr_button_back@2", 1);
         backButton.LocalPosition = new Vector2(1180, 750);
         gameObjects.AddChild(backButton);
     }

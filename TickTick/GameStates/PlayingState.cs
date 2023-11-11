@@ -13,7 +13,7 @@ class PlayingState : GameState, IPlayingState
     public PlayingState()
     {
         // add a "quit" button
-        quitButton = new Button("Sprites/UI/spr_button_quit", 1);
+        quitButton = new Button("Sprites/UI/spr_button_quit@2", 1);
         quitButton.LocalPosition = new Vector2(1290, 20);
         quitButton.Moving = false;
         gameObjects.AddChild(quitButton);

@@ -483,7 +483,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Tiles/spr_wall.png
 
-#begin Sprites/UI/spr_button_back.png
+#begin Sprites/UI/spr_button_back@2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -493,9 +493,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/UI/spr_button_back.png
+/build:Sprites/UI/spr_button_back@2.png
 
-#begin Sprites/UI/spr_button_help.png
+#begin Sprites/UI/spr_button_back@2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -505,9 +505,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/UI/spr_button_help.png
+/build:Sprites/UI/spr_button_back@2.png
 
-#begin Sprites/UI/spr_button_play.png
+#begin Sprites/UI/spr_button_help@2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -517,9 +517,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/UI/spr_button_play.png
+/build:Sprites/UI/spr_button_help@2.png
 
-#begin Sprites/UI/spr_button_quit.png
+#begin Sprites/UI/spr_button_help@2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -529,7 +529,43 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/UI/spr_button_quit.png
+/build:Sprites/UI/spr_button_help@2.png
+
+#begin Sprites/UI/spr_button_music@2x2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/UI/spr_button_music@2x2.png
+
+#begin Sprites/UI/spr_button_play@2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/UI/spr_button_play@2.png
+
+#begin Sprites/UI/spr_button_quit@2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/UI/spr_button_quit@2.png
 
 #begin Sprites/UI/spr_frame_hint.png
 /importer:TextureImporter

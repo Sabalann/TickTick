@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Engine.UI
 {
@@ -12,6 +13,7 @@ namespace Engine.UI
         /// Whether this button has been pressed (clicked) in the current frame.
         /// </summary>
         public bool Pressed { get; protected set; }
+        protected bool hover; 
 
         /// <summary>
         /// Creates a new <see cref="Button"/> with the given sprite name and depth.
@@ -26,12 +28,21 @@ namespace Engine.UI
         {
             Pressed = Visible && inputHelper.MouseLeftButtonPressed()
                 && BoundingBox.Contains(inputHelper.MousePositionWorld);
+            if (this.BoundingBox.Contains(inputHelper.MousePositionWorld)) hover = true;
+            else hover = false;
         }
 
         public override void Reset()
         {
             base.Reset();
             Pressed = false;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            if (hover) { this.SheetIndex = 1; }
+            else { this.SheetIndex = 0; }
         }
     }
 }

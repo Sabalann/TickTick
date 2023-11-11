@@ -1,4 +1,6 @@
-﻿namespace Engine.UI
+﻿using Microsoft.Xna.Framework;
+
+namespace Engine.UI
 {
     /// <summary>
     /// A class that can represent a UI switch that can be turned on or off.
@@ -29,7 +31,7 @@
             {
                 selected = value;
                 if (selected)
-                    SheetIndex = 1;
+                    SheetIndex = 2;
                 else
                     SheetIndex = 0;
             }
@@ -46,6 +48,12 @@
         {
             base.Reset();
             Selected = false;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
         }
     }
 }

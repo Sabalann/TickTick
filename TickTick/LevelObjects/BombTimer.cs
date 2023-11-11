@@ -23,6 +23,7 @@ public class BombTimer : GameObjectList
         // add a background image
         SpriteGameObject background = new SpriteGameObject("Sprites/UI/spr_timer", TickTick.Depth_UIBackground);
         AddChild(background);
+        background.Moving = false;
         leveltime = timeleft;
 
         // add a text

@@ -17,7 +17,7 @@ class LevelMenuState : GameState
         gameObjects.AddChild(background);
 
         // add a back button
-        backButton = new Button("Sprites/UI/spr_button_back", TickTick.Depth_UIForeground);
+        backButton = new Button("Sprites/UI/spr_button_back@2", TickTick.Depth_UIForeground);
         backButton.LocalPosition = new Vector2(720, 690);
         backButton.SetOriginToCenter();
         gameObjects.AddChild(backButton);
