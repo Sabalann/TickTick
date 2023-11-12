@@ -28,6 +28,11 @@ namespace Engine
             set { sprite.SheetIndex = value; }
         }
 
+        public int SheetColumns
+        {
+            get { return sprite.sheetColumns; }
+        }
+
         /// <summary>
         /// The depth (between 0 and 1) at which this object should be drawn. 
         /// A larger value means that the object will be drawn on top.

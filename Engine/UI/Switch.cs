@@ -53,7 +53,7 @@ namespace Engine.UI
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (selected) SheetIndex += 2;
+            if (selected) SheetIndex += SheetColumns;
 
         }
     }

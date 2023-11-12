@@ -12,13 +12,14 @@ namespace Engine
         Rectangle spriteRectangle;
 
         int sheetIndex;
-        int sheetColumns;
+        public int sheetColumns;
         int sheetRows;
 
         /// <summary>
         /// Gets or sets whether the displayed sprite should be mirrored.
         /// </summary>
         public bool Mirror { get; set; }
+       
 
         float depth;
 
