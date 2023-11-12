@@ -42,7 +42,7 @@ partial class Level : GameObjectList
         LoadLevelFromFile(filename);
 
         // add the timer
-        timer = new BombTimer(timeleft); // houd tijd bij
+        timer = new BombTimer(timeleft); // houdt tijd bij
         AddChild(timer);
 
         // add mountains in the background
